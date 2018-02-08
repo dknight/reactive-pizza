@@ -1,0 +1,89 @@
+#Pizza-container {
+  display: flex;
+  flex-flow: column;
+}
+#Pizza-base {
+  background: transparent url('/img/pizza-base.svg') no-repeat center center; 
+  height: 600px;
+  width: 600px;
+  position: relative;
+}
+#Pizza-base:before {
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .77);
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 600px;
+  width: 600px;
+}
+#Pizza-base div {
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  top: 0;
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+  z-index: 5;
+}
+#Pizza-base div[data="10"] {
+  z-index: 1;
+}
+.Pizza-ingredient-1 {
+  background-image: url('/img/base-olive.svg');
+}
+.Pizza-ingredient-2 {
+  background-image: url('/img/base-paprika.svg');
+}
+.Pizza-ingredient-3 {
+  background-image: url('/img/base-salami.svg');
+}
+.Pizza-ingredient-4 {
+  background-image: url('/img/base-tomato.svg');
+}
+.Pizza-ingredient-5 {
+  background-image: url('/img/base-mushroom.svg');
+}
+.Pizza-ingredient-6 {
+  background-image: url('/img/base-onion.svg');
+}
+.Pizza-ingredient-7 {
+  background-image: url('/img/base-parsley.svg');
+}
+.Pizza-ingredient-8 {
+  background-image: url('/img/base-pineapple.svg');
+}
+.Pizza-ingredient-9 {
+  background-image: url('/img/base-shrimp.svg');
+}
+.Pizza-ingredient-10 {
+  background-image: url('/img/base-sauce.svg');
+}
+#Pizza-base div[data=10] {
+  z-index: 1 !important;
+}
+@media screen and (max-width: 1023px) {
+  #Pizza-container {
+    order: 2;
+  }
+}
+
+@media screen and (max-width: 609px) {
+  #Pizza-base,
+  #Pizza-base:before,
+  #Pizza-base div {
+    background-size: cover;
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 399px) {
+  #Pizza-base,
+  #Pizza-base:before,
+  #Pizza-base div {
+    background-size: cover;
+    width: 300px;
+    height: 300px;
+  }
+}

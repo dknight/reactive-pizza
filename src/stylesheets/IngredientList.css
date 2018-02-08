@@ -1,0 +1,97 @@
+#ingredients-list-container {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1rem 3rem;
+  margin-left: 5rem;
+  border: 3px solid orange;
+}
+#ingredients-list-container h2 {
+  color: orange;
+  font: normal 3rem/1.5 'Pacifico', cursive;
+  margin: 0;
+  text-shadow: 1px 1px 0px #d40;
+}
+.IngredientList {
+  background-color: transparent;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.Ingredient img {
+  display: inline-block;
+  height: 5rem;
+  margin-right: 1rem;
+  width: 5rem;
+}
+.Ingredient {
+  cursor: pointer;
+  display: flex;
+  padding: .5rem;
+  position: relative;
+  width: 100%;
+}
+.Ingredient div {
+  display: flex;
+  align-items: center;
+}
+.Ingredient::before {
+  color: #ccc;
+  content: "✓";
+  display: block;
+  font-size: 4rem;
+  padding-top: .9rem;
+  text-shadow: 1px 1px 0 #bbb;
+  width: 4rem;
+  font-weight: bold;
+}
+.Ingredient.used {
+  /*background-color: #C6F4C6;*/
+}
+.Ingredient.used::before {
+  color: #00A604;
+  text-shadow: 1px 1px 0 #004400;
+}
+.Ingredient span {
+  display: inline-block;
+  margin-right: 1rem;
+  font: normal 2rem/1.5 'Pacifico', cursive;
+}
+.Ingredient span.ingredient-name {
+  color: #333;
+}
+.Ingredient span.ingredient-price {
+  color: #d00;
+}
+
+@media screen and (max-width: 1023px) {
+  .IngredientList {
+    flex-flow: row wrap;
+    flex-basis: 50px;
+    margin: 0;
+  }
+  .Ingredient {
+    width: auto;
+  }
+  .Ingredient::before {
+    position: absolute;
+    left: 1.7rem;
+    display: none;
+    font-size: 5rem;
+  }
+  .Ingredient.used::before {
+    display: block;
+  }
+  #ingredients-list-container {
+    margin: 0 0 2rem 0;
+  }
+  #ingredients-list-container h2 {
+    display: none;
+  }
+  .Ingredient span.ingredient-price,
+  .Ingredient span.ingredient-name {
+    display: none;
+    order: 1;
+  }
+}

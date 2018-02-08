@@ -1,0 +1,133 @@
+.OrderForm {
+  background: rgba(0, 0, 0, .8);
+  display: none;
+  font: bold 1.8rem/1 'Open Sans', sans-serif;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.OrderForm.opened {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.OrderForm .order-inner {
+  background: white;
+  border-radius: 3px;
+  color: #222;
+  padding: 2rem;
+  position: relative;
+  width: 50%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: none;
+}
+.OrderForm h2,
+.OrderForm h3 {
+  color: #e74c3c;
+  font: normal 5rem/1 'Pacifico', cursive;
+  margin-top: 1rem;
+  white-space:nowrap;
+}
+.OrderForm h3 {
+  font-size: 3rem;
+  margin: 2rem 0 1rem;
+}
+#btn-order-close {
+  background: transparent;
+  border: none;
+  color: #787878;
+  font-size: 8rem;
+  font-weight: 100;
+  line-height: 1;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+#order-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#order-form select,
+#order-form textarea,
+#order-form input {
+  border-style: solid;
+  border-radius: 3px;
+  line-height: 2;
+  margin: 1rem 0;
+  padding: 1rem;
+}
+#order-form input:not([type=submit]):valid {
+  border: 1px solid green;
+}
+#order-form .disclaimer {
+  color: #666;
+}
+#btn-order-submit {
+  border-radius: 3px;
+  padding: 10px 42px;
+  font: normal 2rem/1 'Open Sans', sans-serif;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: #e74c3c;
+  border: 0;
+  cursor: pointer;
+}
+
+.table-order-ingredients {
+  width: 100%;
+}
+.table-order-ingredients th {
+  background-color: #eee;
+  font-weight: bold;
+  text-align: left;
+}
+.table-order-ingredients th,
+.table-order-ingredients td {
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+.table-order-ingredients .total-row td {
+  background-color: #eee;
+  font-size: 2rem;
+  font-weight: bold;
+}
+@media screen and (max-width: 1023px) {
+  .OrderForm .order-inner {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 767px) {
+  .OrderForm.opened {
+    align-items: flex-start;
+  }
+  .OrderForm .order-inner {
+    width: 100%;
+  }
+  #order-form .field {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  #order-form .field label {
+    flex-basis: 100%;
+    width: 100%;
+    text-align: left;
+  }
+  #order-form .field select,
+  #order-form .field textarea,
+  #order-form .field input {
+    flex-basis: 100%;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 360px) {
+  .OrderForm h2 {
+    margin-top: 6rem;
+  }
+}
