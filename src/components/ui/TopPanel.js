@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { PriceContainer } from '../containers'
 import store from '../../store'
 
+import logo from '../../img/top-pizza-img.svg'
+
 const TopPanel = ({toggleOrder}) => {
 
   const checkIgredientsAndToggleOrder = () => {
@@ -18,7 +20,7 @@ const TopPanel = ({toggleOrder}) => {
 
   return (
     <div id="TopPanel">
-      <img id="logo-img" src='/img/top-pizza-img.svg' alt="Reactive Pizza"/>
+      <img id="logo-img" src={logo} alt="Reactive Pizza"/>
       <h1>Reactive Pizza</h1>
       <div id="order-price">
         <PriceContainer/>
