@@ -1,5 +1,3 @@
-//jest.mock('../src/components/ui/IngredientsList')
-
 import React from 'react'
 import { Provider } from 'react-redux'
 import { shallow, mount } from 'enzyme'
