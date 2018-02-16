@@ -51,7 +51,7 @@ describe('container <IngredientsList/>', () => {
   })
 
   it('should map dispatch to props', () => {
-    const expectedPropKeys = ['onFetch', 'onUse']
+    const expectedPropKeys = ['onUse']
 
     expect(Object.keys(component.props())).toEqual(expect.arrayContaining(expectedPropKeys))
   })

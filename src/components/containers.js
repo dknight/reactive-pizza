@@ -20,9 +20,6 @@ export const IngredientsListContainer = connect(
   state => stateDefaults(state),
   dispatch =>
     ({
-      onFetch() {
-        dispatch(fetchAsyncIgredients())
-      },
       onUse(id) {
         dispatch(useIngredient(id))
       }

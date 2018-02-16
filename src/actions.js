@@ -35,7 +35,7 @@ export const fetchAsyncIgredients = url => dispatch => {
         ingredients: resp.data.ingredients
       })
     )
-    .catch(err => console.error(err))
+    .catch(err => Promise.reject(err))
 }
 
 export const resetIgredients = () =>

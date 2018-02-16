@@ -120,17 +120,25 @@ describe('submitOrder', () => {
 
 describe('test async', () => {
 
-  it('shoud call async', () => {
+  it('should successfully call async fetch', async () => {
     const expectedAction = {
       type: 'FETCH_INGRIDIENTS',
       ingredients: __testIngredients__
     }
     const mock = new MockAdapter(axios);
-    mock.onGet('http://localhost/data/init-data.json').reply(200, {
+    mock.onGet('/data/init-data.json').reply(200, {
       ingredients: __testIngredients__
     });
 
-    const f = fetchAsyncIgredients('http://localhost/data/init-data.json')(store.dispatch)
-    expect(f).resolves.toEqual(expectedAction)
+    const responsePromise = fetchAsyncIgredients('/data/init-data.json')(store.dispatch)
+    await expect(responsePromise).resolves.toEqual(expectedAction)
+  })
+
+  it('should fail async', async () => {
+    const mock = new MockAdapter(axios);
+    mock.onGet('/boo.json').networkError()
+
+    const responsePromise = fetchAsyncIgredients('/boo.json')(store.dispatch)
+    await expect(responsePromise).rejects.toEqual(new Error('Network Error'))
   })
 })
