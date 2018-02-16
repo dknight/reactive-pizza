@@ -1,4 +1,5 @@
 import ActionsTypes from './ActionsTypes'
+import axios from 'axios'
 
 export const useIngredient = ingr =>
   ({
@@ -20,11 +21,22 @@ export const dropIngredient = data => {
   return retval
 }
 
-export const fetchIgredients = ingredients =>
-  ({
-    type: ActionsTypes.FETCH_INGRIDIENTS,
-    ingredients
-  })
+export const fetchIgredients = (ingredients=[]) => ({
+  type: ActionsTypes.FETCH_INGRIDIENTS,
+  ingredients
+})
+
+export const fetchAsyncIgredients = url => dispatch => {
+  dispatch(fetchIgredients())
+  
+  return axios.get(url)
+    .then(resp => dispatch({
+        type: ActionsTypes.FETCH_INGRIDIENTS,
+        ingredients: resp.data.ingredients
+      })
+    )
+    .catch(err => console.error(err))
+}
 
 export const resetIgredients = () =>
   ({

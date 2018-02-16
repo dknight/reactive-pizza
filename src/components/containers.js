@@ -6,7 +6,7 @@ import Price from './ui/Price'
 import ReactivePizzaApp from './ReactivePizzaApp'
 import { useIngredient,
          dropIngredient,
-         fetchIgredients,
+         fetchAsyncIgredients,
          toggleOrder,
          submitOrder } from '../actions'
 import { connect } from 'react-redux'
@@ -20,8 +20,8 @@ export const IngredientsListContainer = connect(
   state => stateDefaults(state),
   dispatch =>
     ({
-      onFetch(data) {
-        dispatch(fetchIgredients(data))
+      onFetch() {
+        dispatch(fetchAsyncIgredients())
       },
       onUse(id) {
         dispatch(useIngredient(id))

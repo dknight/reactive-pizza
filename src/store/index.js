@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware } from 'redux'
 import AppReducers from './reducers'
+import thunk from 'redux-thunk'
 
 const logger = store => next => action => {
   // let result
@@ -23,7 +24,7 @@ const initialState = {
     open: false
   }
 }
-const middleware = applyMiddleware(logger)
+const middleware = applyMiddleware(thunk, logger)
 const store = createStore(AppReducers, initialState, middleware)
 
 export default store

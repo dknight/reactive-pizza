@@ -3,10 +3,13 @@ import store from '../src/store'
 import { useIngredient,
          dropIngredient,
          fetchIgredients,
+         fetchAsyncIgredients,
          toggleOrder,
          submitOrder } from '../src/actions'
 import { createStore, applyMiddleware } from 'redux'
 import reducers from '../src/store/reducers'
+import axios from 'axios'
+import MockAdapter from 'axios-mock-adapter';
 
 describe('fetchIgredients', () => {
 
@@ -61,7 +64,7 @@ describe('fetchIgredients', () => {
 
 describe('useIngredient', () => {
   beforeAll(() => {
-    //store.dispatch(fetchIgredients())
+    store.dispatch(fetchIgredients(__testIngredients__))
   })
 
   it ('should use 1 ingredient', () => {
@@ -111,5 +114,23 @@ describe('submitOrder', () => {
     }
     store.dispatch(submitOrder(__testOrder__))
     expect(store.getState().order).toEqual(results)
+  })
+})
+
+
+describe('test async', () => {
+
+  it('shoud call async', () => {
+    const expectedAction = {
+      type: 'FETCH_INGRIDIENTS',
+      ingredients: __testIngredients__
+    }
+    const mock = new MockAdapter(axios);
+    mock.onGet('http://localhost/data/init-data.json').reply(200, {
+      ingredients: __testIngredients__
+    });
+
+    const f = fetchAsyncIgredients('http://localhost/data/init-data.json')(store.dispatch)
+    expect(f).resolves.toEqual(expectedAction)
   })
 })

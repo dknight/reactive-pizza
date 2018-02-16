@@ -4,8 +4,7 @@ import { ReactivePizzaAppContainer } from './components/containers'
 import registerServiceWorker from './registerServiceWorker'
 import store from './store'
 import { Provider } from 'react-redux'
-import { toggleOrder, fetchIgredients } from './actions'
-import axios from 'axios'
+import { toggleOrder, fetchAsyncIgredients } from './actions'
 
 import './stylesheets/normalize.css'
 import './stylesheets/layout.css'
@@ -19,17 +18,13 @@ document.addEventListener('keypress', (e) => {
     store.dispatch(toggleOrder(false))
   }
 })
-
-// Load ingredients use relative path for production
-axios.get('data/init-data.json')
-  .then(resp => store.dispatch(fetchIgredients(resp.data.ingredients)))
-  .catch(error => console.error(error))
-
 const approot = document.getElementById('react-root')
 
 ReactDOM.render(
   <Provider store={store}>
     <ReactivePizzaAppContainer/>
   </Provider>, approot)
+
+store.dispatch(fetchAsyncIgredients('data/init-data.json'))
 
 registerServiceWorker()
