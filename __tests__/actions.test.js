@@ -89,6 +89,12 @@ describe('useIngredient', () => {
   it ('should drag and drop ingredient', () => {
     store.dispatch(dropIngredient(store.getState().ingredients[0]))
     expect(store.getState().ingredients[0].used).toBeTruthy()
+
+    const ingrDropOffUndef = store.getState().ingredients[0]
+    ingrDropOffUndef.dropoff = null
+    store.dispatch(dropIngredient(ingrDropOffUndef))
+    expect(store.getState().ingredients[0].used).toBeTruthy()
+
   })
 })
 

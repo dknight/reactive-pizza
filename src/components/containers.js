@@ -6,7 +6,6 @@ import Price from './ui/Price'
 import ReactivePizzaApp from './ReactivePizzaApp'
 import { useIngredient,
          dropIngredient,
-         fetchAsyncIgredients,
          toggleOrder,
          submitOrder } from '../actions'
 import { connect } from 'react-redux'

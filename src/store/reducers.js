@@ -5,12 +5,12 @@ export const ingredient = (state={}, action) => {
   switch (action.type) {
     case ActionsTypes.USE_INGREDIENT:
     case ActionsTypes.DROP_INGREDIENT:
-      return (state.id !== action.id) ?
-        state :
+      return (state.id === action.id) ?
         {
           ...state,
           used: !action.used
-        }
+        } :
+        state
     default:
       return state
   }

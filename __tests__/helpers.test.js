@@ -23,4 +23,8 @@ describe('price helper', () => {
   it ('always returns default price for pizza base', () => {
     expect(calculatePrice([NaN, NaN])).toBeCloseTo(3.0)
   })
+
+  it ('always returns default price for pizza base if ingredients is empty', () => {
+    expect(calculatePrice(undefined)).toBeCloseTo(3.0)
+  })
 })

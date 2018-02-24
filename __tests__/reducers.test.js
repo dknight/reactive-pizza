@@ -12,7 +12,7 @@ describe('Should use ingredient', () => {
       type: ActionsTypes.USE_INGREDIENT,
       ...state
     }
-    const results = ingredient(state, action)
+    const results = ingredient(undefined, action)
     deepFreeze(state)
     deepFreeze(action)
     expect(results.used).toBeTruthy()
