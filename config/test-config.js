@@ -3,6 +3,9 @@ import deepFreeze from 'deep-freeze'
 import Adapter from 'enzyme-adapter-react-16'
 import { configure } from 'enzyme'
 
+window.alert = (msg) => { console.log(msg); };
+window.confirm = (msg) => { console.log(msg); };
+
 configure({ adapter: new Adapter() })
 
 global.React = React

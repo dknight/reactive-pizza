@@ -1,6 +1,7 @@
-import calculatePrice from '../src/lib/price-helper'
-import store from '../src/store'
-import { useIngredient } from '../src/actions'
+import '../../config/test-config.js'
+import calculatePrice from '../lib/price-helper'
+import store from '../store'
+import { useIngredient } from '../actions'
 import { mount } from 'enzyme'
 import ReactTestUtils from 'react-dom/test-utils';
 
@@ -22,5 +23,9 @@ describe('price helper', () => {
 
   it ('always returns default price for pizza base', () => {
     expect(calculatePrice([NaN, NaN])).toBeCloseTo(3.0)
+  })
+
+  it ('always returns default price for pizza base if ingredients is empty', () => {
+    expect(calculatePrice(undefined)).toBeCloseTo(3.0)
   })
 })

@@ -1,13 +1,14 @@
-import ActionsTypes from '../src/ActionsTypes'
-import store from '../src/store'
+import '../../config/test-config.js'
+import ActionsTypes from '../ActionsTypes'
+import store from '../store'
 import { useIngredient,
          dropIngredient,
          fetchIgredients,
          fetchAsyncIgredients,
          toggleOrder,
-         submitOrder } from '../src/actions'
+         submitOrder } from '../actions'
 import { createStore, applyMiddleware } from 'redux'
-import reducers from '../src/store/reducers'
+import reducers from '../store/reducers'
 import axios from 'axios'
 import MockAdapter from 'axios-mock-adapter';
 
@@ -89,6 +90,12 @@ describe('useIngredient', () => {
   it ('should drag and drop ingredient', () => {
     store.dispatch(dropIngredient(store.getState().ingredients[0]))
     expect(store.getState().ingredients[0].used).toBeTruthy()
+
+    const ingrDropOffUndef = store.getState().ingredients[0]
+    ingrDropOffUndef.dropoff = null
+    store.dispatch(dropIngredient(ingrDropOffUndef))
+    expect(store.getState().ingredients[0].used).toBeTruthy()
+
   })
 })
 

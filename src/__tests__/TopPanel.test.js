@@ -1,6 +1,7 @@
+import '../../config/test-config.js'
 import React from 'react'
-import { PriceContainer } from '../src/components/containers'
-import TopPanel from '../src/components/ui/TopPanel'
+import { PriceContainer } from '../components/containers'
+import TopPanel from '../components/ui/TopPanel'
 import { shallow } from 'enzyme'
 
 describe('TopPanel', () => {

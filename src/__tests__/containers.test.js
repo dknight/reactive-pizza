@@ -1,8 +1,9 @@
+import '../../config/test-config.js'
 import React from 'react'
 import { Provider } from 'react-redux'
 import { shallow, mount } from 'enzyme'
-import IngredientsList from '../src/components/ui/IngredientsList'
-import { IngredientsListContainer } from '../src/components/containers'
+import IngredientsList from '../components/ui/IngredientsList'
+import { IngredientsListContainer } from '../components/containers'
 
 const storeFake = state => {
   return {

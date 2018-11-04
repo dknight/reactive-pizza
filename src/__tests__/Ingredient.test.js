@@ -1,5 +1,6 @@
+import '../../config/test-config.js'
 import { shallow, mount } from 'enzyme'
-import Ingredient from '../src/components/ui/Ingredient'
+import Ingredient from '../components/ui/Ingredient'
 
 describe('Ingredient UI Component', () => {
 

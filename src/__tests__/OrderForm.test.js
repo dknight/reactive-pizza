@@ -1,9 +1,10 @@
+import '../../config/test-config.js'
 import React from 'react'
-import { PriceContainer } from '../src/components/containers'
-import OrderForm from '../src/components/ui/OrderForm'
+import { PriceContainer } from '../components/containers'
+import OrderForm from '../components/ui/OrderForm'
 import { shallow, mount } from 'enzyme'
-import store from '../src/store'
-import { useIngredient, fetchIgredients } from '../src/actions'
+import store from '../store'
+import { useIngredient, fetchIgredients } from '../actions'
 
 describe('OrderForm', () => {
 

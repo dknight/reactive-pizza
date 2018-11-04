@@ -1,8 +1,9 @@
+import '../../config/test-config.js'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import store from '../src/store'
+import store from '../store'
 import { Provider } from 'react-redux'
-import { ReactivePizzaAppContainer } from '../src/components/containers'
+import { ReactivePizzaAppContainer } from '../components/containers'
 
 it('renders without crashing', () => {
   const div = document.createElement('div')

@@ -1,8 +1,9 @@
-import ActionsTypes from '../src/ActionsTypes'
+import '../../config/test-config.js'
+import ActionsTypes from '../ActionsTypes'
 import deepFreeze from 'deep-freeze'
 import { ingredient,
          ingredients,
-         order } from '../src/store/reducers'
+         order } from '../store/reducers'
 
 describe('Should use ingredient', () => {
 
@@ -12,7 +13,7 @@ describe('Should use ingredient', () => {
       type: ActionsTypes.USE_INGREDIENT,
       ...state
     }
-    const results = ingredient(state, action)
+    const results = ingredient(undefined, action)
     deepFreeze(state)
     deepFreeze(action)
     expect(results.used).toBeTruthy()

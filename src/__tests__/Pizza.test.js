@@ -1,5 +1,6 @@
+import '../../config/test-config.js'
 import React from 'react'
-import Pizza from '../src/components/ui/Pizza'
+import Pizza from '../components/ui/Pizza'
 import { shallow } from 'enzyme'
 
 describe ('Pizza UI component', () => {

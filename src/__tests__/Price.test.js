@@ -1,6 +1,7 @@
-import Price from '../src/components/ui/Price'
-import calculatePrice from '../src/lib/price-helper'
-import { formatPrice } from '../src/lib/price-helper'
+import '../../config/test-config.js'
+import Price from '../components/ui/Price'
+import calculatePrice from '../lib/price-helper'
+import { formatPrice } from '../lib/price-helper'
 import { shallow } from 'enzyme'
 
 describe('Price', () => {

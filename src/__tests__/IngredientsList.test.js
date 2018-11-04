@@ -1,6 +1,7 @@
+import '../../config/test-config.js'
 import React from 'react'
-import IngredientsList from '../src/components/ui/IngredientsList'
-import Ingredient from '../src/components/ui/Ingredient'
+import IngredientsList from '../components/ui/IngredientsList'
+import Ingredient from '../components/ui/Ingredient'
 import { shallow, mount, render } from 'enzyme'
 
 describe ('Rendering IngredientsList UI component', () => {
